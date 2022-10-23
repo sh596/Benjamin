@@ -5,6 +5,20 @@
 
     <data>
 
+        <variable
+            name="virtue"
+            type="com.example.benjamin.model.Virtue" />
+        <variable
+            name="isMain"
+            type="Boolean" />
+
+        <variable
+            name="viewModel"
+            type="com.example.benjamin.viewmodel.VirtueSeeMoreViewModel" />
+
+        <variable
+            name="activity"
+            type="com.example.benjamin.VirtueSeeMoreActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +41,7 @@
             app:layout_constraintGuide_end="20dp" />
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarVirtue"
+            android:id="@+id/toolbarVirtueSeeMore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:contentInsetLeft="0dp"
@@ -50,14 +64,18 @@
             android:id="@+id/textVirtueSeeMoreVirtueTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:fontFamily="@font/pretendard_bold"
+            android:text="@{virtue.virtue}"
             android:layout_marginStart="4dp"
             app:layout_constraintStart_toStartOf="@id/guideline1"
-            app:layout_constraintTop_toBottomOf="@id/toolbarVirtue" />
+            app:layout_constraintTop_toBottomOf="@id/toolbarVirtueSeeMore" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="84dp"
             android:layout_height="26dp"
             app:cardCornerRadius="13dp"
+            bindVisibility="@{isMain}"
             app:layout_constraintBottom_toBottomOf="@id/textVirtueSeeMoreVirtueTitle"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
             app:layout_constraintTop_toTopOf="@id/textVirtueSeeMoreVirtueTitle"
@@ -69,6 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="집중 덕목"
+                
                 android:textSize="13sp"
                 android:fontFamily="@font/pretendard_medium" />
         </com.google.android.material.card.MaterialCardView>
@@ -80,6 +99,7 @@
             android:layout_marginTop="14dp"
             android:textSize="14sp"
             android:fontFamily="@font/pretendard_medium"
+            android:text="@{virtue.description}"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintTop_toBottomOf="@id/textVirtueSeeMoreVirtueTitle" />
 
@@ -106,7 +126,7 @@
             android:id="@+id/viewVirtueSeeMoreRecordLine"
             android:layout_width="1dp"
             android:layout_height="24dp"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/round_background_black"
             app:layout_constraintStart_toStartOf="@id/guideline1"
@@ -115,6 +135,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            bindRecordList="@{viewModel.recordList}"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintTop_toBottomOf="@id/viewVirtueSeeMoreRecordLine"
@@ -129,6 +152,7 @@
             android:layout_marginBottom="36dp"
             android:backgroundTint="@color/black"
             app:cardCornerRadius="8dp"
+            android:onClick="@{activity::clickAddRecord}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
             app:layout_constraintStart_toStartOf="@id/guideline1">

@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="record"
+            type="com.example.benjamin.model.Record" />
 
     </data>
 
@@ -26,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            bindDate="@{record.date}"
             android:textSize="14sp"
             android:textColor="?attr/textSecondaryColor"
             android:fontFamily="@font/pretendard_medium"
@@ -38,6 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:text="@{record.content}"
             android:textSize="14sp"
             android:fontFamily="@font/pretendard_medium"
             app:layout_constraintStart_toEndOf="@id/textItemVirtueRecordDate"

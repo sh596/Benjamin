@@ -3,6 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="virtue"
+            type="com.example.benjamin.model.Virtue" />
 
     </data>
 
@@ -20,9 +23,10 @@
             app:strokeWidth="1dp">
 
             <TextView
+                android:id="@+id/textRecordItemVirtue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:text="@{virtue.virtue}"
                 android:textSize="16sp"
                 android:fontFamily="@font/pretendard_medium"
                 android:layout_gravity="center" />

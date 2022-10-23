@@ -5,6 +5,13 @@
 
     <data>
 
+        <variable
+            name="activity"
+            type="com.example.benjamin.MainActivity" />
+
+        <variable
+            name="viewModel"
+            type="com.example.benjamin.viewmodel.MainViewModel" />
     </data>
 
 
@@ -48,7 +55,9 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="right"/>
+                android:layout_gravity="right"
+                android:src="@drawable/more"
+                />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -77,6 +86,7 @@
             app:strokeColor="@color/black"
             app:strokeWidth="2dp"
             app:cardCornerRadius="8dp"
+            android:onClick="@{activity::clickMainVirtue}"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
             app:layout_constraintTop_toBottomOf="@id/textMainMainVirtueTitle"
@@ -87,6 +97,7 @@
                 android:layout_gravity="center"
                 android:textSize="20sp"
                 android:fontFamily="@font/pretendard_bold"
+                bindMainVirtue="@{viewModel.virtue.virtue[viewModel.virtue.mainVirtueIndex]}"
                 />
         </com.google.android.material.card.MaterialCardView>
 
@@ -102,18 +113,21 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="20dp"
             tools:listitem="@layout/item_virtue"
             android:orientation="vertical"
             app:spanCount="2"
             tools:itemCount="12"
+            bindVirtueAdapter="@{activity}"
+            bindVirtueList="@{viewModel.virtueList}"
+            bindExceptMainVirtue="@{viewModel.virtue.mainVirtueIndex}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/viewMainLine"
-            app:layout_constraintStart_toStartOf="@id/guideline1"
-            app:layout_constraintEnd_toEndOf="@id/guideline2"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
