@@ -4,8 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Zen/AndroidStudioProjects/benjamin2/app/src/main/res/drawable/background_stroke_black_2dp.xml" value="0.157" />
-        <entry key="..\:/Users/Zen/AndroidStudioProjects/benjamin2/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/benjamin2/app/src/main/res/drawable/line_circle.xml" value="0.157" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/benjamin2/app/src/main/res/drawable/round_background_black.xml" value="0.157" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/benjamin2/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/benjamin2/app/src/main/res/layout/activity_record.xml" value="0.264" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/benjamin2/app/src/main/res/layout/activity_virtue_see_more.xml" value="0.264" />
         <entry key="..\:/Users/Zen/AndroidStudioProjects/benjamin2/app/src/main/res/layout/item_virtue.xml" value="0.1693840579710145" />
+        <entry key="..\:/Users/Zen/AndroidStudioProjects/benjamin2/app/src/main/res/layout/item_virtue_record.xml" value="0.176" />
       </map>
     </option>
   </component>

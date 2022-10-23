@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageItemVirtueRecordCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/line_circle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textItemVirtueRecordDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:textSize="14sp"
+            android:textColor="?attr/textSecondaryColor"
+            android:fontFamily="@font/pretendard_medium"
+            app:layout_constraintTop_toTopOf="@id/imageItemVirtueRecordCircle"
+            app:layout_constraintBottom_toBottomOf="@id/imageItemVirtueRecordCircle"
+            app:layout_constraintStart_toEndOf="@id/imageItemVirtueRecordCircle" />
+
+        <TextView
+            android:id="@+id/textItemVirtueRecordContents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textSize="14sp"
+            android:fontFamily="@font/pretendard_medium"
+            app:layout_constraintStart_toEndOf="@id/textItemVirtueRecordDate"
+            app:layout_constraintTop_toTopOf="@id/textItemVirtueRecordDate"
+            app:layout_constraintBottom_toBottomOf="@id/textItemVirtueRecordDate" />
+
+        <View
+            android:id="@+id/viewVirtueSeeMoreRecordLine"
+            android:layout_width="1dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/round_background_black"
+            app:layout_constraintStart_toStartOf="@id/imageItemVirtueRecordCircle"
+            app:layout_constraintEnd_toEndOf="@id/imageItemVirtueRecordCircle"
+            app:layout_constraintTop_toBottomOf="@id/imageItemVirtueRecordCircle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
