@@ -10,20 +10,37 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.benjamin.databinding.ItemVirtueBinding
 import com.example.benjamin.databinding.ItemVirtueRecordBinding
 import com.example.benjamin.model.Record
+import com.example.benjamin.room.RecordDao
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class RecordRecyclerAdapter(
-) : RecyclerView.Adapter<RecordRecyclerAdapter.ViewHolder>() {
+
+class RecordRecyclerAdapter(private val function: (Record) -> Unit) :
+    RecyclerView.Adapter<RecordRecyclerAdapter.ViewHolder>() {
     private var list = mutableListOf<Record>()
-    private lateinit var binding : ItemVirtueRecordBinding
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        fun onBind(item:Record) {
-            binding.record = item
+    private lateinit var binding: ItemVirtueRecordBinding
 
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun onBind(item: Record) {
+            binding.record = item
+            binding.root.setOnLongClickListener {
+                list.remove(item)
+                function(item)
+                notifyDataSetChanged()
+                true
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        binding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_virtue_record, parent, false)
+        binding = DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context),
+            R.layout.item_virtue_record,
+            parent,
+            false
+        )
         return ViewHolder(binding.root)
     }
 
@@ -33,8 +50,10 @@ class RecordRecyclerAdapter(
 
     override fun getItemCount(): Int = list.size
 
-    fun setList(list: List<Record>){
+    fun setList(list: List<Record>) {
         this.list = list as MutableList<Record>
         notifyDataSetChanged()
     }
+
+
 }

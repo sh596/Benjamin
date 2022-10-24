@@ -9,4 +9,5 @@ class RecordRepositoryImpl (private val mainDao: RecordDao) : RecordRepository {
     override suspend fun addRecord(record: Record) {
         mainDao.insertAll(record)
     }
+
 }

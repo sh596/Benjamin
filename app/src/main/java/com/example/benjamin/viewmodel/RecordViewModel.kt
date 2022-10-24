@@ -27,5 +27,4 @@ class RecordViewModel @Inject constructor(private val repository: RecordReposito
             Log.d(TAG, "addRecord: $id ${content.value.toString()}")
         }
     }
-
 }

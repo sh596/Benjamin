@@ -1,5 +1,7 @@
 package com.example.benjamin.viewmodel
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,6 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(): ViewModel() {
+
     private val _virtue = MutableLiveData<VirtueSet>()
 
     val virtue: LiveData<VirtueSet>
@@ -23,7 +26,8 @@ class MainViewModel @Inject constructor(): ViewModel() {
 
         _virtue.value = Constans.getDefaultVirtueData()
 
-        virtueList.addAll(this.virtue.value!!.virtue)
+        virtueList.addAll(this.virtue.value!!.virtue.filter { it.id != _virtue.value!!.mainVirtueId})
+        Log.d(TAG, "getData: ${virtueList}")
     }
 
 /*

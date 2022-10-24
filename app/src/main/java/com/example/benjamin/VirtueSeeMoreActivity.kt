@@ -6,16 +6,21 @@ import android.view.View
 import androidx.activity.viewModels
 import com.example.benjamin.base.BaseActivity
 import com.example.benjamin.databinding.ActivityVirtueSeeMoreBinding
+import com.example.benjamin.model.Record
 import com.example.benjamin.model.Virtue
 import com.example.benjamin.viewmodel.VirtueSeeMoreViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class VirtueSeeMoreActivity : BaseActivity<ActivityVirtueSeeMoreBinding>(R.layout.activity_virtue_see_more) {
+class VirtueSeeMoreActivity :
+    BaseActivity<ActivityVirtueSeeMoreBinding>(R.layout.activity_virtue_see_more) {
 
-    private lateinit var virtue : Virtue
+    private lateinit var virtue: Virtue
 
     private val viewmodel by viewModels<VirtueSeeMoreViewModel>()
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         virtue = (intent.getSerializableExtra("virtue") as Virtue?)!!
@@ -29,9 +34,13 @@ class VirtueSeeMoreActivity : BaseActivity<ActivityVirtueSeeMoreBinding>(R.layou
 
     }
 
-    fun clickAddRecord(view:View) {
+    fun clickAddRecord(view: View) {
         val intent = Intent(this, RecordActivity::class.java)
         intent.putExtra("virtueId", virtue.id)
         startActivity(intent)
+    }
+
+    fun clickBackButton(view: View) {
+        finish()
     }
 }

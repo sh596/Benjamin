@@ -26,16 +26,23 @@ class VirtueSeeMoreViewModel @Inject constructor(private val repository: VirtueS
 
     val recordList = ObservableArrayList<Record>()
 
+    val deleteRecordFunction = { record: Record ->
+        deleteRecord(record)
+    }
 
     fun getRecordListById(id: Int) {
         viewModelScope.launch {
             val modelData = repository.getRecordListById(id)
             launch(Dispatchers.Main) {
                 _record.value = modelData
-                Log.d(TAG, "getRecordListById: ${modelData}")
-                Log.d(TAG, "getRecordListById: ${record.value}")
                 record.value?.let { recordList.addAll(it) }
             }
+        }
+    }
+
+    fun deleteRecord(record: Record) {
+        viewModelScope.launch {
+            repository.deleteRecord(record)
         }
     }
 }

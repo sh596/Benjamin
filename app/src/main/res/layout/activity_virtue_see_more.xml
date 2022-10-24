@@ -4,14 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="virtue"
             type="com.example.benjamin.model.Virtue" />
         <variable
             name="isMain"
             type="Boolean" />
-
         <variable
             name="viewModel"
             type="com.example.benjamin.viewmodel.VirtueSeeMoreViewModel" />
@@ -56,6 +54,7 @@
                 android:layout_gravity="start"
                 android:layout_marginStart="8dp"
                 android:scaleType="center"
+                android:onClick="@{activity::clickBackButton}"
                 android:src="@drawable/ic_back_button" />
 
         </androidx.appcompat.widget.Toolbar>
@@ -65,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:fontFamily="@font/pretendard_bold"
+            android:fontFamily="@font/font_bold"
             android:text="@{virtue.virtue}"
             android:layout_marginStart="4dp"
             app:layout_constraintStart_toStartOf="@id/guideline1"
@@ -89,7 +88,7 @@
                 android:text="집중 덕목"
                 
                 android:textSize="13sp"
-                android:fontFamily="@font/pretendard_medium" />
+                android:fontFamily="@font/font_medium" />
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
@@ -98,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:textSize="14sp"
-            android:fontFamily="@font/pretendard_medium"
+            android:fontFamily="@font/font_medium"
             android:text="@{virtue.description}"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintTop_toBottomOf="@id/textVirtueSeeMoreVirtueTitle" />
@@ -118,7 +117,7 @@
             android:layout_marginTop="16dp"
             android:text="기록"
             android:textSize="16sp"
-            android:fontFamily="@font/pretendard_medium"
+            android:fontFamily="@font/font_medium"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintTop_toBottomOf="@id/viewVirtueSeeMoreLine" />
 
@@ -137,6 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
+            bindRecordAdapter="@{viewModel.deleteRecordFunction}"
             bindRecordList="@{viewModel.recordList}"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
             app:layout_constraintStart_toStartOf="@id/guideline1"
@@ -162,7 +162,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="추가"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:fontFamily="@font/font_bold"
+                android:textSize="16sp"/>
 
         </com.google.android.material.card.MaterialCardView>
 

@@ -6,6 +6,7 @@ import android.view.View
 import androidx.activity.viewModels
 import com.example.benjamin.base.BaseActivity
 import com.example.benjamin.databinding.ActivityRecordBinding
+import com.example.benjamin.model.Record
 import com.example.benjamin.viewmodel.RecordViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -13,7 +14,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class RecordActivity : BaseActivity<ActivityRecordBinding>(R.layout.activity_record) {
 
     private val viewModel by viewModels<RecordViewModel>()
-
     private var id = 13
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +26,10 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>(R.layout.activity_rec
 
     fun addRecord(view: View) {
         viewModel.addRecord(id)
-//        finish()
+        finish()
+    }
+
+    fun clickBackButton(view: View) {
+        finish()
     }
 }

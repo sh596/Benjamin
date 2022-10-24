@@ -7,7 +7,7 @@ class Constans {
     companion object{
         fun getDefaultVirtueData(): VirtueSet {
             val title = "벤자민의 13가지 덕목"
-            val mainVirtueIndex = 0
+            val mainVirtueIndex = 1
             val virtue = listOf(
                 Virtue(0,"절제","자타에 이익을 주는 말만을 하고, 하찮은 대화는 피하라."),
                 Virtue(1,"침묵","자타에 이익을 주는 말만을 하고, 하찮은 대화는 피하라."),
@@ -23,7 +23,7 @@ class Constans {
                 Virtue(11,"순결","건강과 자손을 위해서만 성교를 하라. 아둔해지거나 허약해지거나 자타의 평화나 평판을 해지치 말라."),
                 Virtue(12,"겸손","예수와 소크라테스를 본받으라."),
             )
-            return VirtueSet(title=title, mainVirtueIndex = mainVirtueIndex, virtue = virtue)
+            return VirtueSet(title=title, mainVirtueId = mainVirtueIndex, virtue = virtue)
         }
     }
 }

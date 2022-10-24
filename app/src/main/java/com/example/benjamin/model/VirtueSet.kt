@@ -1,13 +1,8 @@
 package com.example.benjamin.model
 
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
-import java.util.Date
-
 data class VirtueSet(
     val title: String,
-    val mainVirtueIndex: Int,
+    val mainVirtueId: Int,
     val virtue: List<Virtue>
 ): java.io.Serializable
 

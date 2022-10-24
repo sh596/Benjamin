@@ -32,7 +32,7 @@
             bindDate="@{record.date}"
             android:textSize="14sp"
             android:textColor="?attr/textSecondaryColor"
-            android:fontFamily="@font/pretendard_medium"
+            android:fontFamily="@font/"
             app:layout_constraintTop_toTopOf="@id/imageItemVirtueRecordCircle"
             app:layout_constraintBottom_toBottomOf="@id/imageItemVirtueRecordCircle"
             app:layout_constraintStart_toEndOf="@id/imageItemVirtueRecordCircle" />
@@ -44,7 +44,7 @@
             android:layout_marginStart="10dp"
             android:text="@{record.content}"
             android:textSize="14sp"
-            android:fontFamily="@font/pretendard_medium"
+            android:fontFamily="@font/font_medium"
             app:layout_constraintStart_toEndOf="@id/textItemVirtueRecordDate"
             app:layout_constraintTop_toTopOf="@id/textItemVirtueRecordDate"
             app:layout_constraintBottom_toBottomOf="@id/textItemVirtueRecordDate" />

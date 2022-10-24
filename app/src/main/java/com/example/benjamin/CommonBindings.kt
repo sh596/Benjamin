@@ -25,30 +25,35 @@ fun bindVirtueAdapter(view: RecyclerView, activity: Activity) {
 @BindingAdapter("bindVirtueList")
 fun bindVirtueList(view: RecyclerView, virtueList: ObservableArrayList<Virtue>?) {
     val adapter = view.adapter as MainRecyclerAdapter? ?: return
-    if(virtueList != null) adapter.setList(virtueList)
+    if (virtueList != null) adapter.setList(virtueList)
 }
 
 @BindingAdapter("bindExceptMainVirtue")
-fun bindExceptMainVirtue(view: RecyclerView, mainVirtueIndex: Int) {
+fun bindExceptMainVirtue(view: RecyclerView, mainVirtueId: Int) {
     val adapter = view.adapter as MainRecyclerAdapter? ?: return
-    adapter.removeItem(mainVirtueIndex)
+    adapter.removeItem(mainVirtueId)
+
 }
 
+@BindingAdapter("bindRecordAdapter")
+fun bindRecordAdpater(view: RecyclerView, function :(Record) -> Unit){
+    view.adapter = RecordRecyclerAdapter(function)
+}
 
 @BindingAdapter("bindRecordList")
 fun bindRecordList(view: RecyclerView, virtueList: ObservableArrayList<Record>?) {
-    view.adapter = RecordRecyclerAdapter()
     val adapter = view.adapter as RecordRecyclerAdapter? ?: return
-    if(virtueList != null) adapter.setList(virtueList)
+    if (virtueList != null) adapter.setList(virtueList)
+    Log.d(TAG, "bindRecordList: ${virtueList}")
 }
 
 @BindingAdapter("bindVisibility")
 fun bindVisibility(view: View, boolean: Boolean) {
-    view.visibility = if(boolean) View.VISIBLE else View.INVISIBLE
+    view.visibility = if (boolean) View.VISIBLE else View.INVISIBLE
 }
 
 @BindingAdapter("bindDate")
-fun bindDate(view: TextView, date:Long){
+fun bindDate(view: TextView, date: Long) {
     val dateFormat = SimpleDateFormat("MM/dd")
     view.text = dateFormat.format(date)
 }

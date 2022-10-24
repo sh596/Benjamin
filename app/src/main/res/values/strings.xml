@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">benjamin</string>
+    <string name="MainVirtueTitle">이번 주의 집중 덕목</string>
+
 </resources>

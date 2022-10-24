@@ -47,11 +47,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="벤자민의 13가지 덕목"
+                android:text="@{viewModel.virtue.title}"
                 android:textSize="18sp"
-                android:fontFamily="@font/pretendard_bold"
+                android:fontFamily="@font/font_bold"
                 />
-
+<!--
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="8dp"
-                android:layout_gravity="right"/>
+                android:layout_gravity="right"/>-->
         </androidx.appcompat.widget.Toolbar>
 
 
@@ -71,9 +71,9 @@
             android:id="@+id/textMainMainVirtueTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="이번 주의 집중 덕목"
+            android:text="@string/MainVirtueTitle"
             android:textSize="16sp"
-            android:fontFamily="@font/pretendard_medium"
+            android:fontFamily="@font/font_medium"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/toolbarMain"
             app:layout_constraintStart_toStartOf="@id/guideline1"/>
@@ -96,8 +96,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="20sp"
-                android:fontFamily="@font/pretendard_bold"
-                bindMainVirtue="@{viewModel.virtue.virtue[viewModel.virtue.mainVirtueIndex]}"
+                android:fontFamily="@font/font_bold"
+                bindMainVirtue="@{viewModel.virtue.virtue[viewModel.virtue.mainVirtueId]}"
                 />
         </com.google.android.material.card.MaterialCardView>
 
@@ -123,7 +123,6 @@
             tools:itemCount="12"
             bindVirtueAdapter="@{activity}"
             bindVirtueList="@{viewModel.virtueList}"
-            bindExceptMainVirtue="@{viewModel.virtue.mainVirtueIndex}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/viewMainLine"
             app:layout_constraintStart_toStartOf="parent"
