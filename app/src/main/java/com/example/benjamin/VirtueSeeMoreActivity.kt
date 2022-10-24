@@ -18,8 +18,10 @@ class VirtueSeeMoreActivity :
     private lateinit var virtue: Virtue
 
     private val viewmodel by viewModels<VirtueSeeMoreViewModel>()
-
-
+    override fun onResume() {
+        super.onResume()
+        viewmodel.getRecordListById(virtue.id)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +31,6 @@ class VirtueSeeMoreActivity :
         binding.isMain = isMain
         binding.viewModel = viewmodel
         binding.activity = this
-
-        viewmodel.getRecordListById(virtue.id)
 
     }
 
