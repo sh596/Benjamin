@@ -3,7 +3,7 @@ package com.example.benjamin.utils
 import com.example.benjamin.model.Virtue
 import com.example.benjamin.model.VirtueSet
 
-class Constans {
+class Constants {
     companion object{
         fun getDefaultVirtueData(): VirtueSet {
             val title = "벤자민의 13가지 덕목"

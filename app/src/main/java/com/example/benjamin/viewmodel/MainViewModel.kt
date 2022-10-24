@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.benjamin.model.Virtue
 import com.example.benjamin.model.VirtueSet
-import com.example.benjamin.utils.Constans
+import com.example.benjamin.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -24,7 +24,7 @@ class MainViewModel @Inject constructor(): ViewModel() {
 
     fun getData(){
 
-        _virtue.value = Constans.getDefaultVirtueData()
+        _virtue.value = Constants.getDefaultVirtueData()
 
         virtueList.addAll(this.virtue.value!!.virtue.filter { it.id != _virtue.value!!.mainVirtueId})
         Log.d(TAG, "getData: ${virtueList}")
