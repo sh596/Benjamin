@@ -10,6 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import java.util.Calendar
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,18 +22,17 @@ class SplashActivity : AppCompatActivity() {
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
 
         var mainVirtueId = sharedPreferences.getInt("mainVirtueId", 12)
-        val lastRenewalDate = sharedPreferences.getString("lastRenewalDate", "")
-        val currentDate = System.currentTimeMillis()
-        val dateFormat = SimpleDateFormat("yyyyMMdd")
-        val date = dateFormat.format(currentDate)
-        if (!lastRenewalDate.equals(date)) {
+        val lastRenewalDate = sharedPreferences.getInt("lastRenewalWeek", 0)
+        val calendar = Calendar.getInstance()
+        val week = calendar.get(Calendar.WEEK_OF_YEAR)
+        if (lastRenewalDate != calendar.get(Calendar.WEEK_OF_YEAR)) {
             if (mainVirtueId != 12) {
                 mainVirtueId++
                 editor.putInt("mainVirtueId", mainVirtueId)
             }else {
                 editor.putInt("mainVirtueId", 0)
             }
-            editor.putString("lastRenewalDate", date)
+            editor.putInt("lastRenewalWeek", week)
             editor.commit()
         }
         Constants.mainVirtueIndex = mainVirtueId
