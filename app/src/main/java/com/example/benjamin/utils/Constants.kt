@@ -5,9 +5,9 @@ import com.example.benjamin.model.VirtueSet
 
 class Constants {
     companion object{
+        var mainVirtueIndex = 12
         fun getDefaultVirtueData(): VirtueSet {
             val title = "벤자민의 13가지 덕목"
-            val mainVirtueIndex = 1
             val virtue = listOf(
                 Virtue(0,"절제","배부르도록 먹지 말라. 취하도록 마시지 말라."),
                 Virtue(1,"침묵","자타에 이익을 주는 말만을 하고, 하찮은 대화는 피하라."),
