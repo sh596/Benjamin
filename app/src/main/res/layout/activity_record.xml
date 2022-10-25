@@ -50,7 +50,7 @@
                 android:layout_marginStart="8dp"
                 android:scaleType="center"
                 android:src="@drawable/ic_back_button"
-                android:onClick=""/>
+                android:onClick="@{activity::clickBackButton}"/>
 
             <TextView
                 android:layout_width="wrap_content"
